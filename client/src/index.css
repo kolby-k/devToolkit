@@ -1,0 +1,189 @@
+:root {
+  --color-background: #0d0d0d;
+  --color-surface: #1c1c1c;
+  --color-input-bg: #1a1a1a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a6a6a6;
+  --color-border: #262626;
+
+  /* --- Interactive / feedback --- */
+  /* Primary “brand” action (buttons, links, toggles) */
+  --color-primary: #3b82f6; /*  blue‑500  */
+  --color-primary-hover: #60a5fa; /*  blue‑400  */
+  --color-primary-active: #1e40af; /*  blue‑800  */
+  --color-primary-foreground: #ffffff;
+
+  /* Secondary (neutral outline / ghost buttons) */
+  --color-secondary: #2e2e2e; /* slightly lighter than surface */
+  --color-secondary-hover: #3d3d3d;
+  --color-secondary-active: #1f1f1f;
+  --color-secondary-foreground: #ffffff;
+
+  /* Success / positive state */
+  --color-success: #22c55e; /*  green‑500 */
+  --color-success-hover: #4ade80; /*  green‑400 */
+  --color-success-active: #15803d; /*  green‑700 */
+  --color-success-foreground: #ffffff;
+
+  /* Warning / attention */
+  --color-warning: #f59e0b; /*  amber‑500 */
+  --color-warning-hover: #fbbf24; /*  amber‑400 */
+  --color-warning-active: #b45309; /*  amber‑700 */
+  --color-warning-foreground: #1c1c1c;
+
+  /* Danger / destructive */
+  --color-danger: #ef4444; /*  red‑500   */
+  --color-danger-hover: #f87171; /*  red‑400   */
+  --color-danger-active: #b91c1c; /*  red‑700   */
+  --color-danger-foreground: #ffffff;
+
+  /* Info / subtle highlight (e.g., badges, links) */
+  --color-info: #0ea5e9; /*  sky‑500   */
+  --color-info-hover: #38bdf8; /*  sky‑400   */
+  --color-info-active: #0284c7; /*  sky‑700   */
+  --color-info-foreground: #ffffff;
+
+  /* Disabled / muted */
+  --color-disabled-bg: #262626; /* matches border */
+  --color-disabled-text: #555555;
+
+  /* Focus ring (use rgba for soft glow) */
+  --color-focus-ring: #2563eb80; /* 50%‑alpha of blue‑600 */
+
+  --font-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  min-width: 100vw;
+  min-height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-base);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+#page {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+input {
+  background-color: var(--color-input-bg);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.card {
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  width: 350px;
+  height: 200px;
+  padding: 1em;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 26px rgba(46, 41, 78, 0.4);
+}
+
+h1 {
+  font-size: 4em;
+  color: var(--color-text-primary);
+}
+
+h2 {
+  font-size: 3em;
+  color: var(--color-text-primary);
+}
+
+h3 {
+  font-size: 2em;
+  color: var(--color-text-primary);
+}
+
+h4 {
+  font-size: 1.5em;
+  color: var(--color-text-primary);
+}
+
+h5 {
+  font-size: 1.25em;
+  color: var(--color-text-primary);
+}
+
+h5 {
+  font-size: 1em;
+  color: var(--color-text-primary);
+}
+
+p {
+  font-size: 1em;
+  color: var(--color-text-primary);
+}
+
+.pending {
+  color: var(--color-text-secondary);
+}
+
+.active {
+  color: var(--color-text-primary);
+}
+
+button {
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#back-button {
+  position: absolute;
+  left: 4%;
+  top: 6%;
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  width: 80px;
+  height: 30px;
+  color: var(--color-text-secondary);
+}
+
+#back-button:hover {
+  background-color: var(--color-border);
+  border: 1px solid var(--color-input-bg);
+}
+
+#primary-button {
+  background-color: var(--color-primary-active);
+  border: 1px solid var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+#primary-button:hover {
+  background-color: var(--color-primary-hover);
+  border: 1px solid var(--color-primary);
+  color: var(--color-background);
+}
+
+#warning-button {
+  background-color: var(--color-warning-active);
+  border: 1px solid var(--color-warning);
+  color: var(--color-text-primary);
+}
+
+#warning-button:hover {
+  background-color: var(--color-warning-hover);
+  border: 1px solid var(--color-warning);
+  color: var(--color-background);
+}
