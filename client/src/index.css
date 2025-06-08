@@ -1,10 +1,10 @@
 :root {
   --color-background: #0d0d0d;
-  --color-surface: #1c1c1c;
+  --color-surface: #2a2a2d;
   --color-input-bg: #1a1a1a;
   --color-text-primary: #ffffff;
   --color-text-secondary: #a6a6a6;
-  --color-border: #262626;
+  --color-border: #2d2d2d;
 
   /* --- Interactive / feedback --- */
   /* Primary “brand” action (buttons, links, toggles) */
@@ -53,9 +53,14 @@
   --font-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   display: flex;
-  min-width: 100vw;
+  width: 99vw;
   min-height: 100vh;
 
   margin: 0;
@@ -77,6 +82,9 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
+  max-width: 99vw;
+  margin: auto;
 }
 
 input {
@@ -93,6 +101,10 @@ input {
   padding: 1em;
   border: 1px solid var(--color-border);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  padding: 1.5em 2em;
 }
 .card:hover {
   transform: translateY(-5px) scale(1.05);
@@ -143,9 +155,12 @@ p {
 }
 
 button {
-  border-radius: 4px;
-  font-size: 15px;
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: 500;
   cursor: pointer;
+  width: 260px;
+  height: 50px;
 }
 
 #back-button {
@@ -154,8 +169,8 @@ button {
   top: 6%;
   background-color: var(--color-input-bg);
   border: 1px solid var(--color-border);
-  width: 80px;
-  height: 30px;
+  width: 90px;
+  height: 40px;
   color: var(--color-text-secondary);
 }
 

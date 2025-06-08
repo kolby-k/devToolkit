@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import styles from "../styles/JSONFormatter.module.css";
 import BackButton from "../components/BackButton";
+import Button from "../components/Button";
 
 const jsonExample = `{
   "name": "John Doe",
@@ -16,7 +17,10 @@ const jsonExample = `{
 
 function JSONFormatterPage() {
   const [text, setText] = useState(jsonExample);
-  const lines = useMemo(() => (!text ? 99 : text.split("\n").length), [text]);
+  const lines = useMemo(
+    () => (text.split("\n").length < 49 ? 99 : text.split("\n").length),
+    [text]
+  );
 
   function formatJSON() {
     try {
@@ -28,17 +32,17 @@ function JSONFormatterPage() {
   }
 
   return (
-    <div id="page" className={styles.page}>
+    <div id="page">
       <div className={styles.top}>
         <BackButton />
         <h2>JSON Formatter</h2>
         <div className={styles.buttons}>
-          <button id="primary-button" onClick={formatJSON}>
-            Format JSON
-          </button>
-          <button id="warning-button" onClick={() => setText("")}>
-            Clear
-          </button>
+          <Button label="Format JSON" type="primary" handleClick={formatJSON} />
+          <Button
+            label="Clear"
+            type="warning"
+            handleClick={() => setText("")}
+          />
         </div>
       </div>
       <div className={styles.bottom}>

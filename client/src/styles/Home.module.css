@@ -7,16 +7,19 @@
   align-self: center;
   flex: 1;
   padding: 1em;
+  margin-bottom: 2em;
 }
 
 .bottom {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
-  width: 90%;
+  gap: 5em;
+  width: 60%;
+  min-height: 50vh;
   flex: 1;
   justify-content: space-evenly;
   align-items: flex-start;
+  align-self: center;
   padding: 1em;
 }
 
@@ -32,6 +35,14 @@
 }
 
 .subTitle {
-  font-size: 1.25em;
+  font-size: 1.45em;
   font-weight: 400;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 200px;
 }

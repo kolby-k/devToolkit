@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
-import { NavLink } from "react-router";
 import styles from "../styles/Home.module.css";
 import TOOLS from "../constants/tools";
 import normalize from "../utils/normalize";
+import ToolCard from "../components/ToolCard";
+import { BiSolidBarChartAlt2 } from "react-icons/bi";
 
 function HomePage() {
   const [searchString, setSearchString] = useState("");
@@ -17,8 +18,18 @@ function HomePage() {
   return (
     <div id="page">
       <div className={styles.top}>
-        <h1>Developer Toolkit</h1>
-
+        <span className={styles.textContainer}>
+          <h1>
+            Developer Toolkit
+            <BiSolidBarChartAlt2
+              style={{ marginBottom: -10, marginLeft: 15 }}
+              color="white"
+            />
+          </h1>
+          <p className={styles.subTitle}>
+            All of the tools you need, in one place.
+          </p>
+        </span>
         <input
           className={styles.toolSearchInput}
           type="text"
@@ -26,24 +37,17 @@ function HomePage() {
           onChange={(e) => setSearchString(e.target.value)}
           placeholder="Search ..."
         />
-
-        <p className={styles.subTitle}>
-          All of the tools you need, in one place.
-        </p>
       </div>
 
       <div className={styles.bottom}>
         {filteredTools.map((tool) => (
-          <NavLink
+          <ToolCard
             key={tool.path}
-            to={tool.path}
-            style={{ textDecoration: "none" }}
-          >
-            <div className="card">
-              <h3>{tool.name}</h3>
-              <p>{tool.description}</p>
-            </div>
-          </NavLink>
+            name={tool.name}
+            description={tool.description}
+            path={tool.path}
+            icon={tool.icon}
+          />
         ))}
       </div>
     </div>
