@@ -26,7 +26,7 @@ const ToolCard: React.FC<Tool> = ({ name, description, path, icon }) => {
             justifyContent: "space-between",
           }}
         >
-          <h3 style={{ maxWidth: "75%", lineHeight: 1.4 }}>{name}</h3>
+          <h3 style={{ lineHeight: 1.4 }}>{name}</h3>
           <Icon size={50} color="white" style={{ width: "25%" }} />
         </span>
         <p style={{ fontSize: 18 }}>{description}</p>

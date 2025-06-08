@@ -18,7 +18,7 @@ const jsonExample = `{
 function JSONFormatterPage() {
   const [text, setText] = useState(jsonExample);
   const lines = useMemo(
-    () => (text.split("\n").length < 49 ? 99 : text.split("\n").length),
+    () => (text.split("\n").length < 99 ? 99 : text.split("\n").length),
     [text]
   );
 

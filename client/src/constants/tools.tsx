@@ -10,19 +10,19 @@ const TOOLS: Tool[] = [
     name: "JSON Formatter",
     description: "Pretty-print and validate JSON input",
     path: "/json-formatter",
-    icon: "json-formatter",
+    icon: "json",
   },
   {
     name: "Character Counter",
     description: "Count characters, words, and lines in text",
-    path: "/character-count",
-    icon: "character-count",
+    path: "/character-counter",
+    icon: "word-count",
   },
   {
-    name: "Text Comparator",
+    name: "Text Compare",
     description:
       "Highlight differences between two pieces of text side by side",
-    path: "/text-comparator",
+    path: "/text-compare",
     icon: "text-compare",
   },
   {

@@ -4,7 +4,7 @@
   --color-input-bg: #1a1a1a;
   --color-text-primary: #ffffff;
   --color-text-secondary: #a6a6a6;
-  --color-border: #2d2d2d;
+  --color-border: #535353;
 
   /* --- Interactive / feedback --- */
   /* Primary “brand” action (buttons, links, toggles) */
@@ -93,12 +93,27 @@ input {
   border: 1px solid var(--color-border);
 }
 
+textarea {
+  width: 100vw;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+textarea.autosize {
+  width: 100%;
+  min-height: 4rem; /* starting height */
+  max-height: 80vh; /* optional safety cap */
+  overflow: hidden; /* ☚ hide inside scrollbars */
+  resize: none; /* stop the manual corner drag if you like */
+  box-sizing: border-box; /* so padding/border don’t break the math */
+  font: inherit;
+}
+
 .card {
   background-color: var(--color-surface);
   color: var(--color-text-secondary);
   width: 350px;
   height: 200px;
-  padding: 1em;
   border: 1px solid var(--color-border);
   border-radius: 8px;
   display: flex;
@@ -165,8 +180,8 @@ button {
 
 #back-button {
   position: absolute;
-  left: 4%;
-  top: 6%;
+  left: 3%;
+  top: 5%;
   background-color: var(--color-input-bg);
   border: 1px solid var(--color-border);
   width: 90px;
@@ -201,4 +216,13 @@ button {
   background-color: var(--color-warning-hover);
   border: 1px solid var(--color-warning);
   color: var(--color-background);
+}
+
+#stat-widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  row-gap: 2px;
 }
