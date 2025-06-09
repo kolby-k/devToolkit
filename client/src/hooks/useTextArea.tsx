@@ -1,22 +1,27 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-function useTextArea() {
+export default function useTextArea(minLines = 99) {
   const [text, setText] = useState("");
-
-  const lines = useMemo(() => Math.max(99, text.split("\n").length), [text]);
-
+  const [lines, setLines] = useState(minLines);
   const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
 
-  // --- ① autosize whenever `text` changes -----------------------------
   useEffect(() => {
     const ta = textAreaRef.current;
     if (!ta) return;
 
-    ta.style.height = "auto"; // shrink back first (handles deletes)
-    ta.style.height = ta.scrollHeight + "px"; // then grow to fit content
-  }, [text]);
+    /* ---------- autosize ----------- */
+    ta.style.height = "auto"; // reset
+    ta.style.height = ta.scrollHeight + "px";
+
+    /* ---------- count visible lines ----------- */
+    const computed = getComputedStyle(ta);
+    // `line-height` may be "normal" → fall back to font‑size * 1.2
+    const lh =
+      parseFloat(computed.lineHeight) || parseFloat(computed.fontSize) * 1.2;
+
+    const visualLines = Math.ceil(ta.scrollHeight / lh);
+    setLines(Math.max(minLines, visualLines));
+  }, [text, minLines]);
 
   return { textAreaRef, text, setText, lines };
 }
-
-export default useTextArea;

@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 250px;
-  justify-content: space-evenly;
+  min-height: 550px;
+  justify-content: center;
   align-items: center;
+  gap: 2em;
+  margin-bottom: -2em;
 }
 
 .bottom {
@@ -14,6 +16,8 @@
   justify-content: space-evenly;
   column-gap: 2em;
   position: "relative";
+  padding-bottom: 10em;
+  text-align: center;
 }
 
 .results {
@@ -23,23 +27,23 @@
   min-height: 80vh;
   justify-content: space-evenly;
   column-gap: 2em;
-  margin: 2em;
+  margin-bottom: 2em;
+  text-align: center;
 }
 
 .resultTextContainer {
-  display: flex;
   width: 40vw;
   background-color: white;
   text-align: left;
   min-height: 70vh;
-  padding: 4px;
-}
-
-.resultTextContainer > p {
+  padding: 6px;
+  white-space: pre-wrap; /* honour \n and multiple spaces */
+  word-break: break-word; /* avoid horizontal overflow on very‑long words */
   font-size: 16px;
   color: black;
   line-height: 16px;
-  margin: 1.5px;
+  overflow-x: hidden;
+  border: 2px solid white;
 }
 
 .isEqual {
@@ -49,15 +53,36 @@
 .s1NotEqual {
   background-color: rgba(161, 70, 58, 0.641);
   font-weight: 600;
-  height: 18px;
-  margin: 0;
-  padding: 0 3px;
+  line-height: 18px;
 }
 
 .s2NotEqual {
   background-color: rgba(70, 161, 58, 0.641);
   font-weight: 600;
-  height: 18px;
-  margin: 0;
-  padding: 0 3px;
+  line-height: 18px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  width: 80vw;
+  height: 100px;
+  align-self: center;
+  justify-content: space-evenly;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 1em;
+  text-align: center;
+  row-gap: 4px;
+}
+
+.optionItems {
+  display: flex;
+  flex: 1;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 16px;
 }

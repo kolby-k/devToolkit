@@ -94,14 +94,16 @@ input {
 }
 
 textarea {
-  width: 100vw;
+  width: 90vw;
+  min-height: 100%;
   font-size: 16px;
   line-height: 16px;
-  scroll-behavior: none;
+  align-self: center;
+  padding-top: 6px;
 }
 
 #gutter {
-  padding: 0 2px 0 10px;
+  padding: 2px 2px 0 10px;
   margin: 0;
   width: 30px;
   line-height: 16px;
@@ -111,6 +113,7 @@ textarea {
   text-align: right;
   user-select: none;
   text-align: left;
+  flex-shrink: 0;
 }
 
 textarea.autosize {

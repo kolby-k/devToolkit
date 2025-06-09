@@ -2,3 +2,54 @@
   display: flex;
   flex: 1;
 }
+
+.nl-token {
+  display: block;
+  height: 8px;
+  margin: 2px;
+  align-self: flex-start;
+  margin-right: 3px;
+}
+
+.nl-token-not-equal {
+  display: block;
+  background: rgba(255, 0, 0, 0.606);
+  height: 1em;
+  margin: 2px;
+  align-self: flex-start;
+  margin-right: 3px;
+}
+
+.token {
+  color: black;
+}
+
+.s1-word-token-not-equal {
+  background-color: rgba(255, 67, 67, 0.354);
+  color: rgb(115, 0, 0);
+}
+
+.s2-word-token-not-equal {
+  background-color: rgba(67, 255, 92, 0.354);
+  color: rgba(0, 128, 0);
+}
+
+.s1-right-stripe {
+  position: relative; /* gives a containing block to ::after   */
+  display: inline-block; /* keeps the span inline, but measurable */
+}
+
+.s2-right-stripe {
+  background: green;
+}
+
+.s1-right-stripe::after {
+  content: ""; /* actual spaces don’t create width      */
+  position: absolute;
+  top: 0; /* full token height (your line‑height)  */
+  bottom: 0;
+  left: 100%; /* start *after* the word                */
+  right: -100vw; /* extend far beyond the container edge  */
+  background: rgba(255, 0, 0, 0.606);
+  z-index: 0;
+}

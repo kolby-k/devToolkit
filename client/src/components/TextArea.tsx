@@ -13,8 +13,6 @@ export default function TextArea({
   lineCount,
   styles = {},
 }: Props) {
-  // show at least 99 lines, or as many as the text has
-
   return (
     <div
       style={{
@@ -22,12 +20,12 @@ export default function TextArea({
         flex: 1,
         overflow: "hidden",
         marginTop: "20px",
+        justifyContent: "center",
         ...styles,
       }}
     >
       <pre id="gutter">
         {Array.from({ length: lineCount }, (_, i) => (
-          // each line number needs a key
           <span key={i}>
             {i + 1}
             {i + 1 < lineCount ? "\n" : ""}
