@@ -3,7 +3,7 @@ import BackButton from "../components/BackButton";
 import styles from "../styles/CharacterCounter.module.css";
 import StatWidget from "../components/StatWidget";
 import TextArea from "../components/TextArea";
-import useTextArea from "../hooks/useTextarea";
+import useTextArea from "../hooks/useTextArea";
 
 interface Stats {
   characterCount: number;

@@ -3,7 +3,7 @@ import stringCompare, { type CompareResult } from "../utils/stringCompare";
 import styles from "../styles/TextCompare.module.css";
 import Button from "../components/Button";
 import BackButton from "../components/BackButton";
-import useTextArea from "../hooks/useTextarea";
+import useTextArea from "../hooks/useTextArea";
 import TextArea from "../components/TextArea";
 
 function TextComparePage() {

@@ -2,19 +2,7 @@ import styles from "../styles/JSONFormatter.module.css";
 import BackButton from "../components/BackButton";
 import Button from "../components/Button";
 import TextArea from "../components/TextArea";
-import useTextArea from "../hooks/useTextarea";
-
-const jsonExample = `{
-  "name": "John Doe",
-  "age": 30,
-  "email": "john.doe@example.com",
-  "isMember": true,
-  "favorites": {
-    "color": "blue",
-    "food": "pizza"
-  },
-  "hobbies": ["reading", "gaming", "coding"]
-}`;
+import useTextArea from "../hooks/useTextArea";
 
 function JSONFormatterPage() {
   const { textAreaRef, text, setText, lines } = useTextArea();
