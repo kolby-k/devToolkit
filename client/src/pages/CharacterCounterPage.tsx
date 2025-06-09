@@ -1,7 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
 import BackButton from "../components/BackButton";
 import styles from "../styles/CharacterCounter.module.css";
 import StatWidget from "../components/StatWidget";
+import TextArea from "../components/TextArea";
+import useTextArea from "../hooks/useTextarea";
 
 interface Stats {
   characterCount: number;
@@ -11,21 +13,8 @@ interface Stats {
 }
 
 function CharacterCounterPage() {
-  const [text, setText] = useState("");
+  const { textAreaRef, text, setText, lines } = useTextArea();
 
-  const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
-
-  // --- ① autosize whenever `text` changes -----------------------------
-  useEffect(() => {
-    const ta = textAreaRef.current;
-    if (!ta) return;
-
-    ta.style.height = "auto"; // shrink back first (handles deletes)
-    ta.style.height = ta.scrollHeight + "px"; // then grow to fit content
-  }, [text]);
-  // --------------------------------------------------------------------
-
-  const lines = useMemo(() => Math.max(99, text.split("\n").length), [text]);
   const stats = useMemo(() => calculateCharacterStats(text), [text]);
   return (
     <div id="page">
@@ -43,17 +32,12 @@ function CharacterCounterPage() {
         </div>
       </div>
       <div className={styles.bottom}>
-        <div className={styles.tool}>
-          <pre className={styles.gutter}>
-            {Array.from({ length: lines }, (_, i) => i + 1).join("\n")}
-          </pre>
-          <textarea
-            ref={textAreaRef}
-            name="character-counter"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </div>
+        <TextArea
+          textAreaRef={textAreaRef}
+          text={text}
+          setText={(e) => setText(e.target.value)}
+          lineCount={lines}
+        />
       </div>
     </div>
   );

@@ -27,22 +27,3 @@
   width: 100%;
   overflow: hidden;
 }
-
-.tool {
-  display: flex;
-  width: calc(100% - 3em);
-  overflow: hidden;
-}
-
-.gutter {
-  padding: 2px 6px 8px 0;
-  margin: 0;
-  width: 2.5em;
-  line-height: 16px;
-  font-size: 12px;
-  background: #1e1e1e;
-  color: #7d7d7d;
-  text-align: right;
-  user-select: none;
-  overflow: hidden;
-}

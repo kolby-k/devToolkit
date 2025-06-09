@@ -1,7 +1,8 @@
-import { useMemo, useState } from "react";
 import styles from "../styles/JSONFormatter.module.css";
 import BackButton from "../components/BackButton";
 import Button from "../components/Button";
+import TextArea from "../components/TextArea";
+import useTextArea from "../hooks/useTextarea";
 
 const jsonExample = `{
   "name": "John Doe",
@@ -16,11 +17,7 @@ const jsonExample = `{
 }`;
 
 function JSONFormatterPage() {
-  const [text, setText] = useState(jsonExample);
-  const lines = useMemo(
-    () => (text.split("\n").length < 99 ? 99 : text.split("\n").length),
-    [text]
-  );
+  const { textAreaRef, text, setText, lines } = useTextArea();
 
   function formatJSON() {
     try {
@@ -46,17 +43,13 @@ function JSONFormatterPage() {
         </div>
       </div>
       <div className={styles.bottom}>
-        <div className={styles.tool}>
-          <pre className={styles.gutter}>
-            {Array.from({ length: lines }, (_, i) => i + 1).join("\n")}
-          </pre>
-          <textarea
-            name="json-formatter"
-            className={styles.textArea}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </div>
+        <TextArea
+          textAreaRef={textAreaRef}
+          text={text}
+          setText={(e) => setText(e.target.value)}
+          lineCount={lines}
+          styles={{ display: "flex", width: "97%", overflow: "hidden" }}
+        />
       </div>
     </div>
   );
